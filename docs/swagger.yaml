@@ -1,0 +1,111 @@
+definitions:
+  users.PrivateUser:
+    properties:
+      date_created:
+        type: string
+      first_name:
+        type: string
+      id:
+        type: integer
+      last_name:
+        type: string
+      national_id:
+        type: string
+      status:
+        type: string
+    type: object
+info:
+  contact: {}
+  description: This is a test projects for TEST
+  title: Users API
+  version: "1.0"
+paths:
+  /internal/users/search:
+    get:
+      consumes:
+      - application/json
+      description: list all the users based on filter given
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/users.PrivateUser'
+      summary: search user
+      tags:
+      - Users
+  /users/:
+    delete:
+      consumes:
+      - application/json
+      description: delete user
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: deleted
+          schema:
+            type: string
+      summary: delete user
+      tags:
+      - Users
+    post:
+      consumes:
+      - application/json
+      description: create a new user
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/users.PrivateUser'
+      summary: create user
+      tags:
+      - Users
+    put:
+      consumes:
+      - application/json
+      description: update user
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/users.PrivateUser'
+      summary: update user
+      tags:
+      - Users
+  /users/{id}:
+    get:
+      consumes:
+      - application/json
+      description: return one user Based on id
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/users.PrivateUser'
+      summary: get user
+      tags:
+      - Users
+  /users/all:
+    get:
+      consumes:
+      - application/json
+      description: list all the users based on filter given
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/users.PrivateUser'
+      summary: get all users
+      tags:
+      - Users
+swagger: "2.0"
